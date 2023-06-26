@@ -1,0 +1,331 @@
+<div class="character-details">
+	<span for"cname-label">Name</span>
+	<input class="cname-field" name="attr_cname_field" title="@{cname_field}" type="text">
+	<span class="carchetype-label">Archetype</span>
+	<input class="carchetype-field" name="attr_carchetype_field" title="@{carchetype_field}" type="text">
+	<span class="cdescription-label">Description</span>
+	<textarea class="cdescription-field" name="attr_cdescription_field" title="@{cdescription_field}"></textarea>
+	<span class="pcanchor-label">PC Anchor</span>
+	<input class="pcanchor-field" name="attr_pcanchor_field" title="@{pcanchor_field}" type="text">
+	<span class="npcanchor-label">NPC Anchor</span>
+	<input class="npcanchor-field" name="attr_npcanchor_field" title="@{npcanchor_field}" type="text">
+	<span class="drive-label">Drive</span>
+	<input class="drive-field" name="attr_drive_field" title="@{drive_field}" type="text">
+	<input class="checkdrive" name="attr_checkdrive" title="@{checkdrive}" type="checkbox">
+	<span class="issues-label">Issues</span>
+	<input class="issues-field" name="attr_issues_field" title="@{issues_field}" type="text">
+	<span class="cnotes-label">Notes</span>
+	<textarea class="cnotes-field" name="attr_cnotes_field" title="@{cnotes_field}"></textarea>
+</div>
+<div class="global-modifier">
+	<table class="global-modifier-table">
+		<tr><th><span class="global-modifier-label">Roll Modifiers</span></th></tr>
+		<tr>
+			<td>
+				<span class="bonus-label">Bonus</span>
+				<input class="bonus-modifier" type="number" name="attr_bonus_modifier" title="@{bonus_modifier}" id="bonusmodifier" value="0">
+			</td>
+			<td>
+				<span class="help-label">Help</span>
+				<input class="help-modifier" type="number" name="attr_help_modifier" title="@{help_modifier}" id="helpmodifier" value="0">
+			</td>
+		</tr>
+	</table>	
+</div>
+<div class="attributes-skills">
+	<table class="attribute-skills-table">
+		<tr>
+			<th><span class="attribute-skills-label">Attributes & Skills</span></th>
+		</tr>
+		<tr>
+			<td>
+				<input class="strength-attribute" type="number" name="attr_strength_attribute" title="@{strength_attribute}" id="strengthattribute" min="2" max="4">
+				<button type="roll" id="strength-attribute-roll" name="strength_attribute_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Strength}} {{attr=Strength}} {{attr_num=@{strength_attribute}}} {{skill=No Skill}} {{skill_num=0}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{strength_attribute}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Strength</button>
+			</td>
+			<td>
+				<input class="agility-attribute" type="number" name="attr_agility_attribute" title="@{agility_attribute}" id="agilityattribute" min="2" max="4">
+				<button type="roll" id="agility-attribute-roll" name="agility_attribute_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Agility}} {{attr=Agility}} {{attr_num=@{agility_attribute}}} {{skill=No Skill}} {{skill_num=0}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{agility_attribute}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Agility</button>
+			</td>
+			<td>
+				<input class="wits-attribute" type="number" name="attr_wits_attribute" title="@{wits_attribute}" id="witsattribute" min="2" max="4">
+				<button type="roll" id="wits-attribute-roll" name="wits_attribute_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Wits}} {{attr=Wits}} {{attr_num=@{wits_attribute}}} {{skill=No Skill}} {{skill_num=0}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{wits_attribute}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Wits</button>
+			</td>
+			<td>
+				<input class="empathy-attribute" type="number" name="attr_empathy_attribute" title="@{empathy_attribute}" id="empathyattribute" min="2" max="4">
+				<button type="roll" id="empathy-attribute-roll" name="empathy_attribute_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Empathy}} {{attr=Empathy}} {{attr_num=@{empathy_attribute}}} {{skill=No Skill}} {{skill_num=0}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{empathy_attribute}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Empathy</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input class="closecombat-skill" type="number" name="attr_closecombat_skill" title="@{closecombat_skill}" id="closecombatskill" min="0" max="5">
+				<button type="roll" id="closecombat-skill-roll" name="closecombat_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Close Combat}} {{attr=Strength}} {{attr_num=@{strength_attribute}}} {{skill=Close Combat}} {{skill_num=@{closecombat_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{strength_attribute}+@{closecombat_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Close Combat</button>
+			</td>
+			<td>
+				<input class="mobility-skill" type="number" name="attr_mobility_skill" title="@{mobility_skill}" id="mobilityskill" min="0" max="5">
+				<button type="roll" id="mobility-skill-roll" name="mobility_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Mobility}} {{attr=Agility}} {{attr_num=@{agility_attribute}}} {{skill=Mobility}} {{skill_num=@{mobility_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{agility_attribute}+@{mobility_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Mobility</button>
+			</td>
+			<td>
+				<input class="scout-skill" type="number" name="attr_scout_skill" title="@{scout_skill}" id="scoutskill" min="0" max="5">
+				<button type="roll" id="scout-skill-roll" name="scout_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Scout}} {{attr=Wits}} {{attr_num=@{wits_attribute}}} {{skill=Scout}} {{skill_num=@{scout_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{wits_attribute}+@{scout_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Scout</button>
+			</td>
+			<td>
+				<input class="leadership-skill" type="number" name="attr_leadership_skill" title="@{leadership_skill}" id="leadershipskill" min="0" max="5">
+				<button type="roll" id="leadership-skill-roll" name="leadership_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Leadership}} {{attr=Empathy}} {{attr_num=@{empathy_attribute}}} {{skill=Leadership}} {{skill_num=@{leadership_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{empathy_attribute}+@{leadership_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Leadership</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input class="endure-skill" type="number" name="attr_endure_skill" title="@{endure_skill}" id="endureskill" min="0" max="5">
+				<button type="roll" id="endure-skill-roll" name="endure_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Endure}} {{attr=Strength}} {{attr_num=@{strength_attribute}}} {{skill=Endure}} {{skill_num=@{endure_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{strength_attribute}+@{endure_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Endure</button>
+			</td>
+			<td>
+				<input class="rangedcombat-skill" type="number" name="attr_rangedcombat_skill" title="@{rangedcombat_skill}" id="rangedcombatskill" min="0" max="5">
+				<button type="roll" id="rangedcombat-skill-roll" name="rangedcombat_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Ranged Combat}} {{attr=Agility}} {{attr_num=@{agility_attribute}}} {{skill=Ranged Combat}} {{skill_num=@{rangedcombat_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{agility_attribute}+@{rangedcombat_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Ranged Combat</button>
+			</td>
+			<td>
+				<input class="survival-skill" type="number" name="attr_survival_skill" title="@{survival_skill}" id="survivalskill" min="0" max="5">
+				<button type="roll" id="survival-skill-roll" name="survival_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Survival}} {{attr=Wits}} {{attr_num=@{wits_attribute}}} {{skill=Survival}} {{skill_num=@{survival_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{wits_attribute}+@{survival_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Survival</button>
+			</td>
+			<td>
+				<input class="manipulation-skill" type="number" name="attr_manipulation_skill" title="@{manipulation_skill}" id="manipulationskill" min="0" max="5">
+				<button type="roll" id="manipulation-skill-roll" name="manipulation_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Manipulation}} {{attr=Empathy}} {{attr_num=@{empathy_attribute}}} {{skill=Manipulation}} {{skill_num=@{manipulation_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{empathy_attribute}+@{manipulation_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Manipulation</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input class="force-skill" type="number" name="attr_force_skill" title="@{force_skill}" id="forceskill" min="0" max="5">
+				<button type="roll" id="force-skill-roll" name="force_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Force}} {{attr=Strength}} {{attr_num=@{strength_attribute}}} {{skill=Force}} {{skill_num=@{force_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{strength_attribute}+@{force_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Force</button>
+			</td>
+			<td>
+				<input class="stealth-skill" type="number" name="attr_stealth_skill" title="@{stealth_skill}" id="stealthskill" min="0" max="5">
+				<button type="roll" id="stealth-skill-roll" name="stealth_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Stealth}} {{attr=Agility}} {{attr_num=@{agility_attribute}}} {{skill=Stealth}} {{skill_num=@{stealth_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{agility_attribute}+@{stealth_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Stealth</button>
+			</td>
+			<td>
+				<input class="tech-skill" type="number" name="attr_tech_skill" title="@{tech_skill}" id="techskill" min="0" max="5">
+				<button type="roll" id="tech-skill-roll" name="tech_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Tech}} {{attr=Wits}} {{attr_num=@{wits_attribute}}} {{skill=Tech}} {{skill_num=@{tech_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{wits_attribute}+@{tech_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Tech</button>
+			</td>
+			<td>
+				<input class="medicine-skill" type="number" name="attr_medicine_skill" title="@{medicine_skill}" id="medicineskill" min="0" max="5">
+				<button type="roll" id="medicine-skill-roll" name="medicine_skill_roll" value="&{template:walkingdead} {{name=@{character_name}}} {{roll_name=Medicine}} {{attr=Empathy}} {{attr_num=@{empathy_attribute}}} {{skill=Medicine}} {{skill_num=@{medicine_skill}}} {{help_num=@{help_modifier}}} {{bonus_num=@{bonus_modifier}}} {{stress_num=@{stress}}} {{result=[[{(@{empathy_attribute}+@{medicine_skill}+@{help_modifier}+@{bonus_modifier}+@{stress})d6}=6]]}} {{stressfail=[[{(@{stress})d6}=1]]}}">Medicine</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="talents-cont">
+	<table class="talents-table">
+		<tr><th><span class="talents-label">Talents</span></th></tr>
+		<tr><td><textarea class="talents-field" name="attr_talents_field" title="@{talents_field}"></textarea></td></tr>
+	</table>
+</div
+<div class="health-cont">
+	<table class="health-table">
+		<tr><th><span class="health-label">Health</span></th></tr>
+		<tr>
+			<td><span class="unharmed-label">3. Unharmed</span></td>
+			<td><input class="unharmed-check" name="attr_unharmed_check" title="@{unharmed_check}" type="checkbox"></td>
+		</tr>
+		<tr>
+			<td><span class="bruised-label">2. Bruised</span></td>
+			<td><input class="bruised-check" name="attr_bruised_check" title="@{bruised_check}" type="checkbox"></td>
+		</tr>
+		<tr>
+			<td><span class="battered-label">1. Battered</span></td>
+			<td><input class="battered-check" name="attr_battered_check" title="@{battered_check}" type="checkbox"></td>
+		</tr>
+		<tr>
+			<td><span class="broken-label">0. Broken</span></td>
+			<td><input class="broken-check" name="attr_broken_check" title="@{broken_check}" type="checkbox"></td>
+		</tr>
+		<tr>
+			<td><span class="critical-injuries-label">Critical Injuries</span>
+			<textarea class="critical-injuries-field" name="attr_critical_injuries_field" title="@{critical_injuries_field}"></textarea></td>
+		</tr>
+	</table>
+</div>
+<div class="stress-exp">
+	<table class="stress-exp-table">
+		<tr><td>
+			<span class="stress-label">Stress</span>
+			<input class="stress" type="number" name="attr_stress" title="@{stress}" id="stress" min="0" max="5">
+		</td></tr>
+		<tr><td>
+			<span class="exp-label">Experience</span>
+			<input class="exp" type="number" name="attr_exp" title="@{exp}" id="exp" min="0">
+		</td></tr>
+		<tr><td>
+			<span class="encumbrance-label">Encumbrance</span>
+			<input class="encumbrance" type="number" name="attr_encumbrance" title="@{encumbrance}" id="encumbrance">
+		</td></tr>
+	</table>
+</div>
+<div class="weapons-cont">
+	<table class="weapons-table">
+		<tr>
+			<th><span class="weapons-label">Weapons</span></th>
+			<td><span class="weapdamage-label">Damage</span></td>
+			<td><span class="weapbonus-label">Bonus</span></td>
+			<td><span class="weaprange-label">Range</span></td>
+		</tr>
+		<tr>
+			<td><input class="weap1-name" name="attr_weap1_name" title="@{weap1_name}" type="text"></td>
+			<td><input class="weap1-damage" name="attr_weap1_damage" title="@{weap1_damage}" type="text"></td>
+			<td><input class="weap1-bonus" name="attr_weap1_bonus" title="@{weap1_bonus}" type="text"></td>
+			<td><input class="weap1-range" name="attr_weap1_range" title="@{weap1_range}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="weap2-name" name="attr_weap2_name" title="@{weap2_name}" type="text"></td>
+			<td><input class="weap2-damage" name="attr_weap2_damage" title="@{weap2_damage}" type="text"></td>
+			<td><input class="weap2-bonus" name="attr_weap2_bonus" title="@{weap2_bonus}" type="text"></td>
+			<td><input class="weap2-range" name="attr_weap2_range" title="@{weap2_range}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="weap3-name" name="attr_weap3_name" title="@{weap3_name}" type="text"></td>
+			<td><input class="weap3-damage" name="attr_weap3_damage" title="@{weap3_damage}" type="text"></td>
+			<td><input class="weap3-bonus" name="attr_weap3_bonus" title="@{weap3_bonus}" type="text"></td>
+			<td><input class="weap3-range" name="attr_weap3_range" title="@{weap3_range}" type="text"></td>
+		</tr>
+	</table>
+<div class="armor-cont">
+	<table class="armor-table">
+		<tr>
+			<th><span class="armor-label">Armor</span></th>
+			<td><span class="armorprotection-label">Protection</span></td>
+			<td><span class="armorpenalty-label">Penalty</span></td>
+		</tr>
+		<tr>
+			<td><input class="armor-name" name="attr_armor_name" title="@{armor_name}" type="text"></td>
+			<td><input class="armor-protection" name="attr_armor_protection" title="@{armor_protection}" type="text"></td>
+			<td><input class="armor-penalty" name="attr_armor_penalty" title="@{armor_penalty}" type="text"></td>
+		</tr>
+	</table>
+</div>
+<div class="gear-cont">
+	<table class="gear-table">
+		<tr>
+			<th><span class="gear-label">Gear</span></th>
+			<td><span class="gearbonus-label">Bonus</span></td>
+		</tr>
+		<tr>
+			<td><input class="gear1-name" name="attr_gear1_name" title="@{gear1_name}" type="text"></td>
+			<td><input class="gear1-bonus" name="attr_gear1_bonus" title="@{gear1_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear2-name" name="attr_gear2_name" title="@{gear2_name}" type="text"></td>
+			<td><input class="gear2-bonus" name="attr_gear2_bonus" title="@{gear2_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear3-name" name="attr_gear3_name" title="@{gear3_name}" type="text"></td>
+			<td><input class="gear3-bonus" name="attr_gear3_bonus" title="@{gear3_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear4-name" name="attr_gear4_name" title="@{gear4_name}" type="text"></td>
+			<td><input class="gear4-bonus" name="attr_gear4_bonus" title="@{gear4_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear5-name" name="attr_gear5_name" title="@{gear5_name}" type="text"></td>
+			<td><input class="gear5-bonus" name="attr_gear5_bonus" title="@{gear5_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear6-name" name="attr_gear6_name" title="@{gear6_name}" type="text"></td>
+			<td><input class="gear6-bonus" name="attr_gear6_bonus" title="@{gear6_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear7-name" name="attr_gear7_name" title="@{gear7_name}" type="text"></td>
+			<td><input class="gear7-bonus" name="attr_gear7_bonus" title="@{gear7_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear8-name" name="attr_gear8_name" title="@{gear8_name}" type="text"></td>
+			<td><input class="gear8-bonus" name="attr_gear8_bonus" title="@{gear8_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear9-name" name="attr_gear9_name" title="@{gear9_name}" type="text"></td>
+			<td><input class="gear9-bonus" name="attr_gear9_bonus" title="@{gear9_bonus}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="gear10-name" name="attr_gear10_name" title="@{gear10_name}" type="text"></td>
+			<td><input class="gear10-bonus" name="attr_gear10_bonus" title="@{gear10_bonus}" type="text"></td>
+		</tr>
+	</table>
+</div>
+<div class="storgear-cont">
+	<table class="storgear-table">
+		<tr>
+			<th><span class="storgear-label">Stored Gear</span></th>
+			<td><span class="storgearloc-label">Location</span></td>
+		</tr>
+		<tr>
+			<td><input class="storgear1-name" name="attr_storgear1_name" title="@{storgear1_name}" type="text"></td>
+			<td><input class="storgear1-loc" name="attr_storgear1_loc" title="@{storgear1_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear2-name" name="attr_storgear2_name" title="@{storgear2_name}" type="text"></td>
+			<td><input class="storgear2-loc" name="attr_storgear2_loc" title="@{storgear2_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear3-name" name="attr_storgear3_name" title="@{storgear3_name}" type="text"></td>
+			<td><input class="storgear3-loc" name="attr_storgear3_loc" title="@{storgear3_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear4-name" name="attr_storgear4_name" title="@{storgear4_name}" type="text"></td>
+			<td><input class="storgear4-loc" name="attr_storgear4_loc" title="@{storgear4_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear5-name" name="attr_storgear5_name" title="@{storgear5_name}" type="text"></td>
+			<td><input class="storgear5-loc" name="attr_storgear5_loc" title="@{storgear5_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear6-name" name="attr_storgear6_name" title="@{storgear6_name}" type="text"></td>
+			<td><input class="storgear6-loc" name="attr_storgear6_loc" title="@{storgear6_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear7-name" name="attr_storgear7_name" title="@{storgear7_name}" type="text"></td>
+			<td><input class="storgear7-loc" name="attr_storgear7_loc" title="@{storgear7_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear8-name" name="attr_storgear8_name" title="@{storgear8_name}" type="text"></td>
+			<td><input class="storgear8-loc" name="attr_storgear8_loc" title="@{storgear8_loc}" type="text"></td>
+		</tr>
+		<tr>
+			<td><input class="storgear9-name" name="attr_storgear9_name" title="@{storgear9_name}" type="text"></td>
+			<td><input class="storgear9-loc" name="attr_storgear9_loc" title="@{storgear9_loc}" type="text"></td>
+		</tr>
+	</table>
+</div>
+<div class="tinyitems-cont">
+	<table class="tinyitems-table">
+		<tr><th><span class="tinyitems-label">Tiny Items</span></th></tr>
+		<tr><td><textarea class="tinyitems-field" name="attr_tinyitems_field" title="@{tinyitems_field}"></textarea></td></tr>
+	</table>
+</div
+<rolltemplate class="sheet-rolltemplate-walkingdead">
+	<table>
+		<tr><th>{{name}} rolls{{#roll_name}} {{roll_name}}{{/roll_name}}</th></tr>
+		<tr><td class="attr">
+			{{#attr}}
+				{{attr}}({{attr_num}})
+			{{/attr}}
+		</td></tr>
+		<tr><td class="skill">
+			{{#skill}}
+				{{skill}}({{skill_num}})
+			{{/skill}}
+		</td></tr>
+		<tr><td class="help">
+			{{#help_num}}
+				Help({{help_num}})
+			{{/help_num}}
+		</td></tr>
+		<tr><td class="bonus">
+			{{#bonus_num}}
+				Bonus({{bonus_num}})
+			{{/bonus_num}}
+		</td></tr>
+		<tr><td class="stress">
+			{{#stress_num}}
+				Stress({{stress_num}})
+			{{/stress_num}}
+		</td></tr>
+		<tr><td class="result">{{result}} Successes</td></tr>
+		<tr><td class="stressfail">{{stressfail}} Stress Failures</td></tr>
+</table>
+</rolltemplate>
